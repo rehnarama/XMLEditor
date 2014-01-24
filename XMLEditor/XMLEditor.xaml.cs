@@ -57,7 +57,7 @@ namespace XMLEditor
             RemoveTbox();
         }
 
-        public void LoadDocument(XElement element, string location, int level)
+        public void LoadDocument(XElement element, string location, int level = 0)
         {
             this.location = location;
             this.level = level;
