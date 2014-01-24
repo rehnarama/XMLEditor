@@ -1,0 +1,342 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<languages>
+  <template>
+    <gui>
+      <title></title>
+      <instructionTitle></instructionTitle>
+      <instruction1></instruction1>
+      <instruction2></instruction2>
+      <instruction3></instruction3>
+      <instructionPS></instructionPS>
+      <play></play>
+      <endgame></endgame>
+      <piano></piano>
+      <memory></memory>
+      <disco></disco>
+      <stepper></stepper>
+      <hiphop></hiphop>
+      <balans></balans>
+      <hopp></hopp>
+      <reflex></reflex>
+    </gui>
+    <sounds></sounds>
+    <piano>
+      <name></name>
+      <instruction></instruction>
+      <instruction></instruction>
+      <instruction></instruction>
+      <instruction></instruction>
+      <instruction></instruction>
+      <result></result>
+      <result></result>
+      <result></result>
+      <noResult></noResult>
+    </piano>
+    <jump>
+      <name></name>
+      <instruction></instruction>
+      <instruction></instruction>
+      <instruction></instruction>
+      <instruction></instruction>
+      <instruction></instruction>
+      <result></result>
+      <result></result>
+      <result></result>
+      <noResult></noResult>
+    </jump>
+    <stepper>
+      <name></name>
+      <instruction></instruction>
+      <instruction></instruction>
+      <instruction></instruction>
+      <instruction></instruction>
+      <instruction></instruction>
+      <result></result>
+      <result></result>
+      <noResult></noResult>
+    </stepper>
+    <memory>
+      <name></name>
+      <instruction></instruction>
+      <instruction></instruction>
+      <instruction></instruction>
+      <instruction></instruction>
+      <instruction></instruction>
+      <result></result>
+      <result></result>
+      <noResult></noResult>
+    </memory>
+    <balans>
+      <name></name>
+      <instruction></instruction>
+      <instruction></instruction>
+      <instruction></instruction>
+      <instruction></instruction>
+      <instruction></instruction>
+      <result></result>
+      <noResult></noResult>
+    </balans>
+    <hiphop>
+      <name></name>
+      <instruction></instruction>
+      <instruction></instruction>
+      <instruction></instruction>
+      <instruction></instruction>
+      <instruction></instruction>
+      <result></result>
+      <result></result>
+      <result></result>
+      <noResult></noResult>
+    </hiphop>
+    <disco>
+      <name></name>
+      <instruction></instruction>
+      <instruction></instruction>
+      <instruction></instruction>
+      <instruction></instruction>
+      <instruction></instruction>
+      <result></result>
+      <result></result>
+      <result></result>
+      <noResult></noResult>
+    </disco>
+    <reflex>
+      <name></name>
+      <instruction></instruction>
+      <instruction></instruction>
+      <instruction></instruction>
+      <instruction></instruction>
+      <instruction></instruction>
+      <result></result>
+      <result></result>
+      <result></result>
+      <noResult></noResult>
+    </reflex>
+  </template>
+  <language lang="sv">
+    <gui>
+      <title description="Programmets titel">Lekmattan</title>
+      <instructionTitle>För att spela</instructionTitle>
+      <instruction1>Välj ett spel till vänster</instruction1>
+      <instruction2>Välj antal spelare till höger</instruction2>
+      <instruction3>Tryck på SPELA!</instruction3>
+      <instructionPS>Resultaten baseras på antal spelare</instructionPS>
+      <play>Spela!</play>
+      <endgame>Slut på spelet</endgame>
+      <piano>Piano</piano>
+      <memory>Memory</memory>
+      <disco>Disco</disco>
+      <stepper>Stepper</stepper>
+      <hiphop>Hiphop</hiphop>
+      <balans>Balans</balans>
+      <hopp>Hopp</hopp>
+      <reflex>Reflex</reflex>
+    </gui>
+    <sounds type="folderbrowse">\music\svenska</sounds>
+    <piano>
+      <name>Piano</name>
+      <instruction>Träna din kreativitet!</instruction>
+      <instruction>Rör dig som du vill på knapparna</instruction>
+      <instruction>Lyssna på ditt resultat!</instruction>
+      <instruction>Hur låter det när du spelar piano?</instruction>
+      <instruction>En kreativ lek för alla åldrar!</instruction>
+      <result>Vad fint det låter! Lyssna!</result>
+      <result>steg! och</result>
+      <result>meter!</result>
+      <noResult>Det var ingen som spelade</noResult>
+    </piano>
+    <jump>
+      <name>Hopp</name>
+      <instruction>Träna dig på att hoppa!</instruction>
+      <instruction>Hoppa så högt som möjligt</instruction>
+      <instruction>Kolla på ditt resultat!</instruction>
+      <instruction>Hur högt hoppar du?</instruction>
+      <instruction>En kreativ lek för alla åldrar!</instruction>
+      <result>Du hoppade</result>
+      <result>centimeter</result>
+      <result>Hoppade du verkligen?</result>
+      <noResult>Det var ingen som hoppade</noResult>
+    </jump>
+    <stepper>
+      <name>Stepper</name>
+      <instruction>Testa din snabbhet!</instruction>
+      <instruction>Steppa så fort du kan mellan två knappar!</instruction>
+      <instruction>Är ni fler väljer varje spelar ett eget färgfält och därefter knappar</instruction>
+      <instruction>Hur snabb är du?</instruction>
+      <instruction>Ett utmanade spela som alla kan pröva!</instruction>
+      <result>Du steppade</result>
+      <result>steg per sekund</result>
+      <noResult>Det var ingen som dansade</noResult>
+    </stepper>
+    <memory>
+      <name>Memory</name>
+      <instruction>Träna ditt minne!</instruction>
+      <instruction>Tryck på en knapp för att höra ett ljud!</instruction>
+      <instruction>Välj en annan knapp för att hitta ljudparet</instruction>
+      <instruction>Hur många par hittar du?</instruction>
+      <instruction>Ett kreativt spel för alla åldrar!</instruction>
+      <result>Du hittade</result>
+      <result>par</result>
+      <noResult>Det var ingen som dansade</noResult>
+    </memory>
+    <balans>
+      <name>Balans</name>
+      <instruction>Träna balans, koordination och perception!</instruction>
+      <instruction>Lyssna och sätt händer och fötter på rätt knapp</instruction>
+      <instruction>Variera gärna reglerna för ökad svårighetsgrad</instruction>
+      <instruction>Hur länge klarar du hålla balansen?</instruction>
+      <instruction>Ett enkelt spel som passar alla!</instruction>
+      <result>Bra jobbat!</result>
+      <noResult>Det var ingen som dansade</noResult>
+    </balans>
+    <hiphop>
+      <name>Hiphop</name>
+      <instruction>Träna din kreativitet!</instruction>
+      <instruction>Skapa en egen hiphoplåt!</instruction>
+      <instruction>Lyssna på ditt resultat!</instruction>
+      <instruction>En blivande hit?</instruction>
+      <instruction>En kreativ lek för alla åldrar!</instruction>
+      <result>Vilken cool låt! Lyssna!</result>
+      <result>steg! och</result>
+      <result>meter!</result>
+      <noResult>Det var ingen som dansade</noResult>
+    </hiphop>
+    <disco>
+      <name>Disco</name>
+      <instruction>Träna takt och koordination!</instruction>
+      <instruction>Blinkande lampor visar vilka färgknappar du ska hoppa på, lysande visar nästa</instruction>
+      <instruction>Håll takten, träffa rätt färgknapp, rör dig mellan så många knappar som möjligt</instruction>
+      <instruction>Se ditt resultat</instruction>
+      <instruction>Ett utamande spel som kräver lite övning!</instruction>
+      <result>Såhär bra i takt dansade ni!</result>
+      <result>En taktkänsla på</result>
+      <result>%!</result>
+      <noResult>Det var ingen som dansade</noResult>
+    </disco>
+    <reflex>
+      <name>Reflex</name>
+      <instruction>Träna dina reflexer!</instruction>
+      <instruction>Tryck på rätt färg så snabbt du kan!</instruction>
+      <instruction>Du kommer få mindre tid efter varje knapptryck</instruction>
+      <instruction>Se ditt resultat</instruction>
+      <instruction>Ett hektiskt spel som passar alla</instruction>
+      <result>Bra jobbat! Ni var i genomsnitt såhär snabba!</result>
+      <result>Ungefär</result>
+      <result>sekunders reflextid!</result>
+      <noResult>Det var ingen som dansade</noResult>
+    </reflex>
+  </language>
+  <language lang="de">
+    <gui>
+      <title>dwad</title>
+      <instructionTitle></instructionTitle>
+      <instruction1></instruction1>
+      <instruction2></instruction2>
+      <instruction3></instruction3>
+      <instructionPS></instructionPS>
+      <play></play>
+      <endgame></endgame>
+      <piano></piano>
+      <memory></memory>
+      <disco></disco>
+      <stepper></stepper>
+      <hiphop></hiphop>
+      <balans></balans>
+      <hopp></hopp>
+      <reflex></reflex>
+    </gui>
+    <sounds></sounds>
+    <piano>
+      <name></name>
+      <instruction></instruction>
+      <instruction></instruction>
+      <instruction></instruction>
+      <instruction></instruction>
+      <instruction></instruction>
+      <result></result>
+      <result></result>
+      <result></result>
+      <noResult></noResult>
+    </piano>
+    <jump>
+      <name></name>
+      <instruction></instruction>
+      <instruction></instruction>
+      <instruction></instruction>
+      <instruction></instruction>
+      <instruction></instruction>
+      <result></result>
+      <result></result>
+      <result></result>
+      <noResult></noResult>
+    </jump>
+    <stepper>
+      <name></name>
+      <instruction></instruction>
+      <instruction></instruction>
+      <instruction></instruction>
+      <instruction></instruction>
+      <instruction></instruction>
+      <result></result>
+      <result></result>
+      <noResult></noResult>
+    </stepper>
+    <memory>
+      <name></name>
+      <instruction></instruction>
+      <instruction></instruction>
+      <instruction></instruction>
+      <instruction></instruction>
+      <instruction></instruction>
+      <result></result>
+      <result></result>
+      <noResult></noResult>
+    </memory>
+    <balans>
+      <name></name>
+      <instruction></instruction>
+      <instruction></instruction>
+      <instruction></instruction>
+      <instruction></instruction>
+      <instruction></instruction>
+      <result></result>
+      <noResult></noResult>
+    </balans>
+    <hiphop>
+      <name></name>
+      <instruction></instruction>
+      <instruction></instruction>
+      <instruction></instruction>
+      <instruction></instruction>
+      <instruction></instruction>
+      <result></result>
+      <result></result>
+      <result></result>
+      <noResult></noResult>
+    </hiphop>
+    <disco>
+      <name></name>
+      <instruction></instruction>
+      <instruction></instruction>
+      <instruction></instruction>
+      <instruction></instruction>
+      <instruction></instruction>
+      <result></result>
+      <result></result>
+      <result></result>
+      <noResult></noResult>
+    </disco>
+    <reflex>
+      <name></name>
+      <instruction></instruction>
+      <instruction></instruction>
+      <instruction></instruction>
+      <instruction></instruction>
+      <instruction></instruction>
+      <result></result>
+      <result></result>
+      <result></result>
+      <noResult></noResult>
+    </reflex>
+  </language>
+</languages>
