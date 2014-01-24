@@ -1,11 +1,10 @@
-﻿<Window xmlns:xmlEditorTestApp="clr-namespace:xmlEditorTestApp"  x:Class="xmlEditorTestApp.MainWindow"
+﻿<Window xmlns:XMLEditor="clr-namespace:XMLEditor;assembly=XMLEditor"  x:Class="xmlEditorTestApp.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
         <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
-            <StackPanel x:Name="itemscontrol" Orientation="Horizontal" >
-            </StackPanel>
+            <XMLEditor:XMLEditor x:Name="editor" />
         </ScrollViewer>
     </Grid>
 </Window>

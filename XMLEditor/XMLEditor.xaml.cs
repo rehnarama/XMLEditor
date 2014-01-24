@@ -93,8 +93,8 @@ namespace XMLEditor
                 {
                     TextBlock desc = new TextBlock();
                     desc.Text = description.Value;
-                    desc.Margin = margin;
-                    desc.VerticalAlignment = System.Windows.VerticalAlignment.Bottom;
+                    desc.Margin = new Thickness(0, 4, 4, 2);
+                    desc.VerticalAlignment = System.Windows.VerticalAlignment.Top;
                     desc.FontSize -= 1;
                     sp.Children.Add(desc);
                 }

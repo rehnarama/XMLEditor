@@ -95,12 +95,6 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Language.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <SubType>Designer</SubType>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\XMLEditor\XMLEditor.csproj">
       <Project>{0a882400-5751-4e14-ab92-87b58cc58742}</Project>
       <Name>XMLEditor</Name>

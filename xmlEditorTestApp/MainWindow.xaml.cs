@@ -29,45 +29,22 @@ namespace xmlEditorTestApp
 
         void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            string location = System.Windows.Forms.Application.StartupPath + @"\Language.xml";
-            XDocument doc = XDocument.Load(location);
-
-            foreach (XElement element in doc.Element("languages").Elements("language"))
-            {
-                Grid grid = new Grid();
-
-                grid.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(1, GridUnitType.Auto) });
-                grid.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(1, GridUnitType.Auto) });
-
-                TextBlock tb = new TextBlock();
-                tb.Text = element.Attribute("lang").Value;
-                tb.SetValue(Grid.RowProperty, 0);
-                tb.FontSize += 4;
-                tb.FontWeight = FontWeights.Bold;
-                tb.Margin = new Thickness(4);
-
-                Rectangle rect = new Rectangle();
-                rect.VerticalAlignment = System.Windows.VerticalAlignment.Bottom;
-                rect.HorizontalAlignment = System.Windows.HorizontalAlignment.Stretch;
-                rect.Height = 1;
-                rect.Fill = Brushes.Black;
-
-                Rectangle rect2 = new Rectangle();
-                rect2.VerticalAlignment = System.Windows.VerticalAlignment.Stretch;
-                rect2.HorizontalAlignment = System.Windows.HorizontalAlignment.Left;
-                rect2.Width = 1;
-                rect2.Fill = Brushes.Black;
-
-                XMLEditor.XMLEditor editor = new XMLEditor.XMLEditor();
-                editor.LoadDocument(element, location, 0);
-                editor.SetValue(Grid.RowProperty, 1);
-
-                grid.Children.Add(tb);
-                grid.Children.Add(rect);
-                grid.Children.Add(editor);
-                itemscontrol.Children.Add(rect2);
-                itemscontrol.Children.Add(grid);
-            }
+            string location = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\example.xml";
+            string xml = 
+@"<?xml version=""1.0"" encoding=""utf-8""?>
+<rootelement>
+    <folderbrowserexample type=""folderbrowse"" description=""Click to choose a folder"" />
+    <textinputexample1 type=""text"" description=""Click to input text"" />
+    <textinputexample2 description=""Click to also input text"">
+        <subitemexample1 />
+        <subitemexample2>
+            <subsubexample1 />
+            <subsubexample2 />
+        </subitemexample2>
+    </textinputexample2>
+</rootelement>";
+            XDocument doc = XDocument.Parse(xml);
+            this.editor.LoadDocument(doc.Element("rootelement"), location);
         }
     }
 }
