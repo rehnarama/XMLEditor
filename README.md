@@ -9,16 +9,37 @@ The only other behaviour I've added so far is the type of input. To change the t
 
 The loaded document is automatically saved.
 
-# Screenshots
+## Example code
+Code from `MainWindow.xaml.cs`
+```csharp
+string location = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\example.xml";
+            string xml = 
+@"<?xml version=""1.0"" encoding=""utf-8""?>
+<rootelement>
+    <folderbrowserexample type=""folderbrowse"" description=""Click to choose a folder"" />
+    <textinputexample1 type=""text"" description=""Click to input text"" />
+    <textinputexample2 description=""Click to also input text"">
+        <subitemexample1 />
+        <subitemexample2>
+            <subsubexample1 />
+            <subsubexample2 />
+        </subitemexample2>
+    </textinputexample2>
+</rootelement>";
+            XDocument doc = XDocument.Parse(xml);
+            this.editor.LoadDocument(doc.Element("rootelement"), location);
+```
 
-![](http://imgur.com/cQc7ks1.png)
+## Screenshots
+
+![](http://i.imgur.com/Pw0N9cr.png)
 
 Simple look with description on some elements
 
-![](http://i.imgur.com/hY1cSDK.png)
+![](http://i.imgur.com/NvuSZyn.png)
 
 Simple text input
 
-![](http://i.imgur.com/UaIRgVg.png?1)
+![](http://i.imgur.com/drR6Wdf.png?1)
 
 "folderbrowse"-type
