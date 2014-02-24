@@ -65,7 +65,7 @@ namespace XMLEditor
             PopulateRows();
         }
 
-        Dictionary<TextBlock, XElement> dictionary = new Dictionary<TextBlock, XElement>();
+        Dictionary<UIElement, XElement> dictionary = new Dictionary<UIElement, XElement>();
 
         private void PopulateRows()
         {
@@ -139,33 +139,45 @@ namespace XMLEditor
                 }
                 else
                 {
-                    TextBlock elevalue = new TextBlock();
-                    elevalue.Text = element.Value;
-                    elevalue.SetValue(Grid.RowProperty, row);
-                    elevalue.SetValue(Grid.ColumnProperty, 1);
-                    elevalue.Margin = margin;
-                    elevalue.MinWidth = 100;
-                    elevalue.Background = Brushes.AntiqueWhite;
+                    UIElement elevalue;// = GenerateTypeText(ref margin, row, element.Value);
+                    //TextBlock elevalue = GenerateTypeText(ref margin, row, element.Value);
 
                     XAttribute type = element.Attribute("type");
 
                     if (type == null)
                     {
+                        elevalue = GenerateTypeText(ref margin, row, element.Value);
                         elevalue.MouseLeftButtonUp += TypeText_MouseLeftButtonUp;
                     }
                     else
                     {
-                        if (type.Value == "text")
+                        switch (type.Value)
                         {
-                            elevalue.MouseLeftButtonUp += TypeText_MouseLeftButtonUp;
-                        }
-                        else if (type.Value == "folderbrowse")
-                        {
-                            elevalue.MouseLeftButtonUp += TypeFolderBrowse_MouseLeftButtonUp;
-                        }
-                        else if (type.Value == "folderbrowserelative")
-                        {
-                            elevalue.MouseLeftButtonUp += TypeFolderBrowseRelative_MouseLeftButtonUp;
+                            case "test":
+                                elevalue = GenerateTypeText(ref margin, row, element.Value);
+                                elevalue.MouseLeftButtonUp += TypeText_MouseLeftButtonUp;
+                                break;
+                            case "folderbrowse":
+                                elevalue = GenerateTypeText(ref margin, row, element.Value);
+                                elevalue.MouseLeftButtonUp += TypeFolderBrowse_MouseLeftButtonUp;
+                                break;
+                            case "folderbrowserelative":
+                                elevalue = GenerateTypeText(ref margin, row, element.Value);
+                                elevalue.MouseLeftButtonUp += TypeFolderBrowseRelative_MouseLeftButtonUp;
+                                break;
+                            case "bool":
+                                bool b;
+                                if (!bool.TryParse(element.Value, out b))
+                                    b = false;
+
+                                elevalue = GenerateCheckBox(ref margin, row, b);
+                                ((CheckBox)elevalue).Checked += TypeBool_Checked;
+                                ((CheckBox)elevalue).Unchecked += TypeBool_Checked;
+                                break;
+                            default:
+                                elevalue = GenerateTypeText(ref margin, row, element.Value);
+                                elevalue.MouseLeftButtonUp += TypeText_MouseLeftButtonUp;
+                                break;
                         }
                     }
                     dictionary.Add(elevalue, element);
@@ -175,6 +187,35 @@ namespace XMLEditor
 
                 row++;
             }
+        }
+
+        private static CheckBox GenerateCheckBox(ref Thickness margin, int row, bool value)
+        {
+            CheckBox elevalue = new CheckBox();
+            elevalue.IsChecked = value;
+            elevalue.SetValue(Grid.RowProperty, row);
+            elevalue.SetValue(Grid.ColumnProperty, 1);
+            elevalue.Margin = margin;
+            return elevalue;
+        }
+
+        private static TextBlock GenerateTypeText(ref Thickness margin, int row, string value)
+        {
+            TextBlock elevalue = new TextBlock();
+            elevalue.Text = value;
+            elevalue.SetValue(Grid.RowProperty, row);
+            elevalue.SetValue(Grid.ColumnProperty, 1);
+            elevalue.Margin = margin;
+            elevalue.MinWidth = 100;
+            elevalue.Background = Brushes.AntiqueWhite;
+            return elevalue;
+        }
+
+        void TypeBool_Checked(object sender, RoutedEventArgs e)
+        {
+            CheckBox box = (CheckBox)sender;
+            dictionary[box].Value = box.IsChecked.ToString();
+            dictionary[box].Document.Save(location);
         }
 
         void TypeFolderBrowseRelative_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -197,81 +238,6 @@ namespace XMLEditor
                 dictionary[lastClicked].Document.Save(location);
             }
         }
-
-
-        //private void PopulateRows()
-        //{
-        //    var elements = Element.Elements();
-
-        //    Thickness margin = new Thickness(2, 2, 4, 2);
-
-        //    int row = 0;
-        //    foreach (XElement element in elements)
-        //    {
-        //        this.MainGrid.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(1, GridUnitType.Auto) });
-
-        //        TextBlock elename = new TextBlock();
-        //        elename.Text = element.Name.ToString();
-        //        elename.SetValue(Grid.RowProperty, row);
-        //        elename.SetValue(Grid.ColumnProperty, 0);
-        //        elename.Margin = margin;
-        //        elename.FontWeight = FontWeights.Bold;
-
-
-
-        //        Rectangle rect = new Rectangle();
-        //        rect.Fill = new SolidColorBrush(Color.FromRgb(140, 152, 161));
-        //        rect.VerticalAlignment = System.Windows.VerticalAlignment.Stretch;
-        //        rect.HorizontalAlignment = System.Windows.HorizontalAlignment.Right;
-        //        rect.Width = 1;
-        //        rect.SetValue(Grid.RowProperty, row);
-        //        rect.SetValue(Grid.ColumnProperty, 0);
-        //        rect.Margin = new Thickness(2, 2, 0, 2);
-
-        //        if (level == 0)
-        //        {
-        //            Rectangle rect2 = new Rectangle();
-        //            rect2.Fill = Brushes.Black;
-        //            rect2.VerticalAlignment = System.Windows.VerticalAlignment.Bottom;
-        //            rect2.HorizontalAlignment = System.Windows.HorizontalAlignment.Stretch;
-        //            rect2.Height = 1;
-        //            rect2.SetValue(Grid.RowProperty, row);
-        //            rect2.SetValue(Grid.ColumnProperty, 0);
-        //            rect2.SetValue(Grid.ColumnSpanProperty, 2);
-        //            //rect2.Margin = new Thickness(2, 0, 2, 0);
-
-        //            this.MainGrid.Children.Add(rect2);
-        //        }
-
-        //        this.MainGrid.Children.Add(elename);
-        //        this.MainGrid.Children.Add(rect);
-
-        //        if (element.HasElements)
-        //        {
-        //            XMLEditor xmleditor = new XMLEditor();
-        //            xmleditor.LoadDocument(element, location, level + 1);
-        //            xmleditor.SetValue(Grid.RowProperty, row);
-        //            xmleditor.SetValue(Grid.ColumnProperty, 1);
-        //            xmleditor.Margin = new Thickness(0, 2, 0, 2);
-
-        //            this.MainGrid.Children.Add(xmleditor);
-        //        }
-        //        else
-        //        {
-        //            TextBlock elevalue = new TextBlock();
-        //            elevalue.Text = element.Value;
-        //            elevalue.SetValue(Grid.RowProperty, row);
-        //            elevalue.SetValue(Grid.ColumnProperty, 1);
-        //            elevalue.Margin = margin;
-        //            elevalue.MinWidth = 100;
-        //            elevalue.Background = Brushes.AntiqueWhite;
-        //            elevalue.MouseLeftButtonUp += elevalue_MouseLeftButtonUp;
-        //            dictionary.Add(elevalue, element);
-        //            this.MainGrid.Children.Add(elevalue);
-        //        }
-        //        row++;
-        //    }
-        //}
 
         void TypeText_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {

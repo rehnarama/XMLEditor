@@ -30,11 +30,12 @@ namespace xmlEditorTestApp
         void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
             string location = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\example.xml";
-            string xml = 
+            string xml =
 @"<?xml version=""1.0"" encoding=""utf-8""?>
 <rootelement>
     <folderbrowserexample type=""folderbrowse"" description=""Click to choose a folder"" />
     <textinputexample1 type=""text"" description=""Click to input text"" />
+    <textinputexample1 type=""bool"" description=""This is a boolean type"" />
     <textinputexample2 description=""Click to also input text"">
         <subitemexample1 />
         <subitemexample2>
